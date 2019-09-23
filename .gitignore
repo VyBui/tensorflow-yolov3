@@ -128,3 +128,7 @@ bin/
 /image_processing/experiment
 *.tar.gz
 *events.out.tfevents.1568944409
+data/detection/*.jpg
+mAP/ground-truth/*.txt
+mAP/predicted/*.txt
+

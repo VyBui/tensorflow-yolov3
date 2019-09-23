@@ -15,7 +15,7 @@ def convert_voc_annotation(data_path, data_type, anno_path, use_difficult_bbox=T
 
     with open(anno_path, 'a') as f:
         for image_ind in image_inds:
-            image_path = os.path.join(data_path, 'JPEGImages', image_ind + '.jpg')
+            image_path = os.path.join(data_path, 'JPEGImages', image_ind + 'cars.jpg')
             annotation = image_path
             label_path = os.path.join(data_path, 'Annotations', image_ind + '.xml')
             root = ET.parse(label_path).getroot()

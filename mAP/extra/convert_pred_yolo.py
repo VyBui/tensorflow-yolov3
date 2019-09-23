@@ -5,7 +5,7 @@ IN_FILE = 'result.txt'
 OUTPUT_DIR = os.path.join('..', 'predicted')
 
 SEPARATOR_KEY = 'Enter Image Path:'
-IMG_FORMAT = '.jpg'
+IMG_FORMAT = 'cars.jpg'
 
 outfile = None
 with open(IN_FILE) as infile:

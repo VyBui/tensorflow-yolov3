@@ -141,7 +141,7 @@ class YoloTest(object):
         os.makedirs(results_path)
 
         for image_ind in image_inds:
-            image_path = os.path.join(voc2012_test_path, 'JPEGImages', image_ind + '.jpg')
+            image_path = os.path.join(voc2012_test_path, 'JPEGImages', image_ind + 'cars.jpg')
             image = cv2.imread(image_path)
 
             print('predict result of %s:' % image_ind)

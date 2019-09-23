@@ -61,11 +61,11 @@ with open(annotation_file, 'r') as annot_f:
                 annotation_dir_name = annotation_dir_name.replace('/', '', 1)
             destination_dir = os.path.join(ARGS.output_path, annotation_dir_name)
             os.makedirs(destination_dir, exist_ok=True)
-            # replace .jpg with your image format.
-            file_name = os.path.basename(img_path).replace('.jpg', '.txt')
+            # replace cars.jpg with your image format.
+            file_name = os.path.basename(img_path).replace('cars.jpg', '.txt')
             output_file_path = os.path.join(destination_dir, file_name)
         else:
-            file_name = img_path.replace('.jpg', '.txt').replace('/', '__')
+            file_name = img_path.replace('cars.jpg', '.txt').replace('/', '__')
             output_file_path = os.path.join(ARGS.output_path, file_name)
             os.path.dirname(output_file_path)
 
