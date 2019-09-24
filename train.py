@@ -41,7 +41,8 @@ class YoloTrain(object):
         self.trainset            = Dataset('train')
         self.testset             = Dataset('test')
         self.steps_per_period    = len(self.trainset)
-        self.sess                = tf.Session(config=tf.ConfigProto(allow_soft_placement=True))
+        gpu_options = tf.GPUOptions(allow_growth=True)
+        self.sess                = tf.InteractiveSession(config=tf.ConfigProto(gpu_options=gpu_options))
 
         with tf.name_scope('define_input'):
             self.input_data   = tf.placeholder(dtype=tf.float32, name='input_data')
@@ -51,7 +52,7 @@ class YoloTrain(object):
             self.true_sbboxes = tf.placeholder(dtype=tf.float32, name='sbboxes')
             self.true_mbboxes = tf.placeholder(dtype=tf.float32, name='mbboxes')
             self.true_lbboxes = tf.placeholder(dtype=tf.float32, name='lbboxes')
-            self.trainable     = tf.placeholder(dtype=tf.bool, name='training')
+            self.trainable    = tf.placeholder(dtype=tf.bool, name='training')
 
         with tf.name_scope("define_loss"):
             self.model = YOLOV3(self.input_data, self.trainable)
@@ -173,7 +174,7 @@ class YoloTrain(object):
                 test_epoch_loss.append(test_step_loss)
 
             train_epoch_loss, test_epoch_loss = np.mean(train_epoch_loss), np.mean(test_epoch_loss)
-            ckpt_file = "./checkpoint/yolov3_test_loss=%.4f.ckpt" % test_epoch_loss
+            ckpt_file = "./checkpoint/yolov3_person.ckpt" % test_epoch_loss
             log_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
             print("=> Epoch: %2d Time: %s Train loss: %.2f Test loss: %.2f Saving %s ..."
                             %(epoch, log_time, train_epoch_loss, test_epoch_loss, ckpt_file))

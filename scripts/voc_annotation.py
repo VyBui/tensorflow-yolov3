@@ -25,12 +25,13 @@ def convert_voc_annotation(data_path, data_type, anno_path, use_difficult_bbox=T
                 if (not use_difficult_bbox) and(int(difficult) == 1):
                     continue
                 bbox = obj.find('bndbox')
-                class_ind = classes.index(obj.find('name').text.lower().strip())
-                xmin = bbox.find('xmin').text.strip()
-                xmax = bbox.find('xmax').text.strip()
-                ymin = bbox.find('ymin').text.strip()
-                ymax = bbox.find('ymax').text.strip()
-                annotation += ' ' + ','.join([xmin, ymin, xmax, ymax, str(class_ind)])
+                class_ind = obj.find('name').text.lower().strip()
+                if (class_ind == "person"):
+                    xmin = bbox.find('xmin').text.strip()
+                    xmax = bbox.find('xmax').text.strip()
+                    ymin = bbox.find('ymin').text.strip()
+                    ymax = bbox.find('ymax').text.strip()
+                    annotation += ' ' + ','.join([xmin, ymin, xmax, ymax, str(0)])
             print(annotation)
             f.write(annotation + "\n")
     return len(image_inds)
@@ -38,7 +39,7 @@ def convert_voc_annotation(data_path, data_type, anno_path, use_difficult_bbox=T
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_path", default="/home/yang/test/VOC/")
+    parser.add_argument("--data_path", default="/home/vybt/test/VOC/")
     parser.add_argument("--train_annotation", default="./data/dataset/voc_train.txt")
     parser.add_argument("--test_annotation",  default="./data/dataset/voc_test.txt")
     flags = parser.parse_args()
