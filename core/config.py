@@ -5,8 +5,8 @@
 #
 #   Editor      : VIM
 #   File name   : config.py
-#   Author      : YunYang1994
-#   Created date: 2019-02-28 13:06:54
+#   Author      : Vybt
+#   Created date: 2019-09-24 13:06:54
 #   Description :
 #
 #================================================================
@@ -59,7 +59,7 @@ __C.TEST.DATA_AUG               = False
 __C.TEST.WRITE_IMAGE            = True
 __C.TEST.WRITE_IMAGE_PATH       = "./data/detection/"
 __C.TEST.WRITE_IMAGE_SHOW_LABEL = True
-__C.TEST.WEIGHT_FILE            = "./checkpoint/yolov3_test_loss=1.9803.ckpt-6"
+__C.TEST.WEIGHT_FILE            = "./checkpoint/yolov3_person.ckpt-50"
 __C.TEST.SHOW_LABEL             = True
 __C.TEST.SCORE_THRESHOLD        = 0.3
 __C.TEST.IOU_THRESHOLD          = 0.45

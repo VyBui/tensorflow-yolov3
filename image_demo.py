@@ -19,7 +19,7 @@ from PIL import Image
 
 return_elements = ["input/input_data:0", "pred_sbbox/concat_2:0", "pred_mbbox/concat_2:0", "pred_lbbox/concat_2:0"]
 pb_file         = "./yolov3_coco.pb"
-image_path      = "./docs/images/trump-ukraine-meeting.jpg"
+image_path      = "./docs/images/mark.jpeg"
 num_classes     = 1
 input_size      = 416
 graph           = tf.Graph()
