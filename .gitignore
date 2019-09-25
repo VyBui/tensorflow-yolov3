@@ -131,4 +131,5 @@ bin/
 data/detection/*.jpg
 mAP/ground-truth/*.txt
 mAP/predicted/*.txt
+data/log
 
